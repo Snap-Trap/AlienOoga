@@ -6,15 +6,18 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public CameraRotation cameraRotation;
+
     public InputAction forward;
     public InputAction backward;
     public InputAction left;
     public InputAction right;
     public InputAction jump;
 
-    public float speed = 5f;
-    public float jumpForce = 7f;
-    public float maxRayDistance = 1.2f;
+    public float speed;
+    public float jumpForce;
+    private float maxRayDistance = 1.2f;
+    private float playerRotation;
 
     private Rigidbody rb;
 
@@ -30,27 +33,39 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        
+
+        playerRotation = cameraRotation.turn.x;
+
+        Quaternion playerRotationQuaternion = Quaternion.Euler(0, playerRotation, 0);
+
+        Vector3 forwardMovement = playerRotationQuaternion * Vector3.forward;
+        Vector3 rightMovement = playerRotationQuaternion * Vector3.right;
+
+        Vector3 movement = Vector3.zero;
+
+        rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
+
         // basic movement shit
-
-
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
 
         if (forward.ReadValue<float>() == 1)
         {
-            rb.velocity += new Vector3(0, 0, speed);
+            movement += forwardMovement * speed; 
         }
         if (backward.ReadValue<float>() == 1)
         {
-            rb.velocity += new Vector3(0, 0, -speed);
+            movement += -forwardMovement * speed;
         }
         if (left.ReadValue<float>() == 1)
         {
-            rb.velocity += new Vector3(-speed, 0, 0);
+            movement += -rightMovement * speed; 
         }
         if (right.ReadValue<float>() == 1)
         {
-            rb.velocity += new Vector3(speed, 0, 0);
+            movement += rightMovement * speed; 
         }
+
+        
         if (isGrounded && jump.triggered)
         {
             rb.velocity += new Vector3(0, jumpForce, 0);

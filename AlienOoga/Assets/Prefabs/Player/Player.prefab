@@ -248,7 +248,22 @@ MonoBehaviour:
       m_Action: Right
       m_Flags: 0
     m_Flags: 0
+  jump:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3424d7d5-0a78-4534-a44d-66b18277c5f3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   speed: 5
+  jumpForce: 7
+  maxRayDistance: 1.2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  isGrounded: 0
 --- !u!1 &7066935842939168559
 GameObject:
   m_ObjectHideFlags: 0
