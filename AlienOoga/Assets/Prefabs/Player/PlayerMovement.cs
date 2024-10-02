@@ -16,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed;
     public float jumpForce;
-    private float maxRayDistance = 1.2f;
-    private float playerRotation;
+    public float maxRayDistance = 1.2f;
+    public float playerRotation;
 
     private Rigidbody rb;
 
@@ -33,8 +33,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
 
+        // Makes it so the other script that controls the camera gives the rotation and you can use it here so forward goes forward based on--
+        // what the player's forward is instead of the scene's forward
+        // Touch this and I'll break your kneecaps
         playerRotation = cameraRotation.turn.x;
 
         Quaternion playerRotationQuaternion = Quaternion.Euler(0, playerRotation, 0);
@@ -43,8 +45,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 rightMovement = playerRotationQuaternion * Vector3.right;
 
         Vector3 movement = Vector3.zero;
-
-        rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
+        
 
         // basic movement shit
 
@@ -65,12 +66,17 @@ public class PlayerMovement : MonoBehaviour
             movement += rightMovement * speed; 
         }
 
+        rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
+
         
+
+        // Checks for jump button and if ground is touched
         if (isGrounded && jump.triggered)
         {
             rb.velocity += new Vector3(0, jumpForce, 0);
         }
 
+        // Raycast you bloodgunging watermelon
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out RaycastHit groundHit, maxRayDistance, whatIsGround))
         {
             Debug.Log("Floor hit");
@@ -86,6 +92,8 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down), Color.red, maxRayDistance);
     }
 
+
+    // Input System stuff
     private void OnEnable()
     {
         forward.Enable();
