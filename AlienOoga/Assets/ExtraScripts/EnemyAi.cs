@@ -26,7 +26,7 @@ public class EnemyAi : MonoBehaviour
 
     // This is attacking ai
     public float timeBetweenAttacks;
-    bool alreadyAttacked;
+    public bool alreadyAttacked;
 
     // To switch between ai states
     public float sightRange, attackRange;
@@ -97,39 +97,38 @@ public class EnemyAi : MonoBehaviour
         if (!alreadyAttacked)
         {
             // Is for when attacking, I'm using the function from the other script
-            // Nevermind other script no worky
-
-            
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
 
-    private void ResetAttack()
+    void ResetAttack()
     {
         alreadyAttacked = false;
     }
 
-    public void TakeDamge(int damage)
-    {
-        health -= damage;
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), .5f);
-    }
 
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Bullet"))
-        {
-            TakeDamge(1);
-        }
-    }
+    //public void TakeDamge(int damage)
+    //{
+    //    health -= damage;
 
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
+    //    if (health <= 0) Invoke(nameof(DestroyEnemy), .5f);
+    //}
+
+    //public void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.collider.CompareTag("Bullet"))
+    //    {
+    //        TakeDamge(1);
+    //    }
+    //}
+
+    //private void DestroyEnemy()
+    //{
+    //    Destroy(gameObject);
+    //}
 
 
 
