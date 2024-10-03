@@ -5,8 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyAi : MonoBehaviour
 {
-    // Calls upon the glorious EnemyGun written by the one and only, almighty, amazing, fantastic, and talented me
-    public EnemyGun enemyGun;
     // Makes a reference to the NavMeshAgent component
     public NavMeshAgent agent;
 
@@ -101,7 +99,7 @@ public class EnemyAi : MonoBehaviour
             // Is for when attacking, I'm using the function from the other script
             // Nevermind other script no worky
 
-            enemyGun.Shoot();
+            
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
