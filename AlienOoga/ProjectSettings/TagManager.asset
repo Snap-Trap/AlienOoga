@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - BobHands
+  - Jim
   layers:
   - Default
   - TransparentFX
