@@ -314,13 +314,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675621712}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0, y: 0.15688613, z: -0, w: 0.9876168}
+  m_LocalPosition: {x: 0.196, y: 1.02, z: -0.936}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 18.052, z: 0}
 --- !u!1 &1038583129
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +415,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1825413488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1825413489}
+  m_Layer: 0
+  m_Name: Firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1825413489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825413488}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.2853098, y: -0.08, z: 0.687}
+  m_LocalScale: {x: 1.2486868, y: 1.0892793, z: 0.30428934}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1827884973}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1827884967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -469,9 +500,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3904092411484510687, guid: d18d9038bde0a4143ac414e9353bbfaf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1825413489}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5419905831322725033, guid: d18d9038bde0a4143ac414e9353bbfaf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1827884969}
   m_SourcePrefab: {fileID: 100100000, guid: d18d9038bde0a4143ac414e9353bbfaf, type: 3}
+--- !u!1 &1827884968 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5419905831322725033, guid: d18d9038bde0a4143ac414e9353bbfaf, type: 3}
+  m_PrefabInstance: {fileID: 1827884967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1827884969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827884968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff436b91fc683241ad671d9ca36ca60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootAction:
+    m_Name: Shoot
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7cf75c27-45c8-4366-afa3-4787813f4bed
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 29815726-7b23-4096-91a0-135c9fa8b326
+      m_Path: <Mouse>/leftButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Shoot
+      m_Flags: 0
+    m_Flags: 0
+  reloadAction:
+    m_Name: Reload
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 693ac313-dbc0-4f89-97d0-4b233a5079d9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 7672693e-9109-47ac-b4a6-b5e8c5f05f01
+      m_Path: <Keyboard>/r
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Reload
+      m_Flags: 0
+    m_Flags: 0
+  gunScriptable: {fileID: 11400000, guid: ed796c120a9c3574dabe66ae4e6fe232, type: 2}
+  gunBulletPrefab: {fileID: 0}
+  gunBarrel: {fileID: 1825413489}
+  gunName: 
+  gunDamage: 0
+  gunFireRate: 0
+  gunBulletCount: 0
+  gunAmmo: 0
+  nextFireTime: 0
+--- !u!4 &1827884973 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3904092411484510687, guid: d18d9038bde0a4143ac414e9353bbfaf, type: 3}
+  m_PrefabInstance: {fileID: 1827884967}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

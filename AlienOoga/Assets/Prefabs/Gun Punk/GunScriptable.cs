@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[CreateAssetMenu(fileName = "New Gun", menuName = "Guns")]
 public class GunScriptable : ScriptableObject
 {
     public string gunName; //De naam van het wapen
