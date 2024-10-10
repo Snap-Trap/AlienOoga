@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MarcoScene.unity
     guid: 49efde1084eff344ebd5f40d75a17524
+  - enabled: 1
+    path: Assets/Scenes/HowToPlayScherm.unity
+    guid: 5d9bc6a516c3d6042a0409924ea25006
   m_configObjects: {}
