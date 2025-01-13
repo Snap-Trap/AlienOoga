@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int health = 100;
+    public float health;
 
-    public void TakeDamage(int damage)
+    private void Start()
     {
-        health -= damage;
+        health = 4f;
+    }
+
+    void TakeDamage()
+    {
         if (health <= 0)
         {
-            Die();
+            Destroy(gameObject);
         }
     }
 
-    public void Die()
-    {
-        Destroy(gameObject);
-    }
-
-    public void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Bullet"))
         {
-            TakeDamage(15);
+            health -= 1;
+            TakeDamage();
         }
     }
+
 }

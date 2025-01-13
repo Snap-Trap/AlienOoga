@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5240894239099317805}
   - component: {fileID: 3455359368999332097}
   - component: {fileID: 506708900051553550}
+  - component: {fileID: 2203489576057185967}
   m_Layer: 8
   m_Name: Bob
   m_TagString: Untagged
@@ -124,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e71d42ac0bda244bde9e5e54a8f401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bobAttack: {fileID: 0}
   agent: {fileID: 506708900051553550}
   player: {fileID: 0}
   whatIsGround:
@@ -133,15 +133,19 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 512
   health: 3
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 10
   timeBetweenAttacks: 2
   alreadyAttacked: 0
-  sightRange: 24
-  attackRange: 6
+  sightRange: 12
+  attackRange: 1.3
   playerInSightRange: 0
   playerInAttackRange: 0
+  playerInLineSight: 0
 --- !u!195 &506708900051553550
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -164,6 +168,20 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2203489576057185967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4817843262947614158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d4fe86b9c87a264d85fb98de604881d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  gunFunction: {fileID: 0}
 --- !u!1 &6300124769161027876
 GameObject:
   m_ObjectHideFlags: 0

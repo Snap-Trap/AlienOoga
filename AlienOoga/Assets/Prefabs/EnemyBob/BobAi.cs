@@ -12,7 +12,7 @@ public class BobAi : MonoBehaviour
     public Transform player;
 
     // So it can tell the difference between ground and player, also neat to dodge random obstacles
-    public LayerMask whatIsGround, whatIsPlayer;
+    public LayerMask whatIsGround, whatIsPlayer, whatIsWall;
 
     // Basic variables
 
@@ -30,7 +30,7 @@ public class BobAi : MonoBehaviour
 
     // To switch between ai states
     public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    public bool playerInSightRange, playerInAttackRange, playerInLineSight;
 
     private void Awake()
     {
@@ -42,6 +42,10 @@ public class BobAi : MonoBehaviour
     {
         // Checks for the sight range and attack range in a sphere around the enemy
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        if (playerInSightRange)
+        {
+            playerInLineSight = Physics.Raycast(transform.position, player.position - transform.position, out RaycastHit hit, sightRange);
+        }
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
         // Simple logic, it will either patrol, chase, or attack the player depending on what states the variables are in

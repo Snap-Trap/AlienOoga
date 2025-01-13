@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GunPunk
   m_EditorClassIdentifier: 
   gunName: GunPunk
-  damage: 69
+  damage: 15
   fireRate: 1.5
   bullets: 1
   ammo: 10

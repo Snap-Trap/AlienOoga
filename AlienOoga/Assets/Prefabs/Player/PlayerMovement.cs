@@ -8,16 +8,11 @@ public class PlayerMovement : MonoBehaviour
 {
     public CameraRotation cameraRotation;
 
-    public InputAction forward;
-    public InputAction backward;
-    public InputAction left;
-    public InputAction right;
-    public InputAction jump;
+    public InputAction forward, backward, left, right, jump;
 
-    public float speed;
-    public float jumpForce;
     public float maxRayDistance = 1.2f;
-    public float playerRotation;
+
+    public float speed, jumpForce, playerRotation;  
 
     private Rigidbody rb;
 
