@@ -42,23 +42,21 @@ public class BobAi : MonoBehaviour
     {
         // Checks for the sight range and attack range in a sphere around the enemy
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInLineSight = Physics.Raycast(transform.position, player.position, sightRange, whatIsPlayer);
-        Debug.DrawRay(transform.position, player.position, Color.green);
 
-        while (playerInSightRange)
+        //Vector3 playerDirection = player.position - transform.position;
+
+        // Alright let's just do this with a simple fucking spherecast because I am about to lose my mind
+
+        if (playerInSightRange)
         {
-            Debug.Log("Player inside the bubble of vision");
-            if (playerInLineSight)
-            {
-                Debug.Log("Player in actual sight");
-            }
+
         }
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
         // Simple logic, it will either patrol, chase, or attack the player depending on what states the variables are in
-        if (!playerInLineSight && !playerInAttackRange) Patroling();
-        if (playerInLineSight && !playerInAttackRange) ChasePlayer();
-        if (playerInLineSight && playerInAttackRange) AttackPlayer();
+        if (!playerInSightRange && !playerInAttackRange) Patroling();
+        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+        if (playerInSightRange && playerInAttackRange) AttackPlayer();
     }
 
     private void Patroling()
